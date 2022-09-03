@@ -41,9 +41,9 @@ namespace JPIEnrollmentSystem
             this.lblTeacher.Location = new System.Drawing.Point(0, 5);
             this.lblTeacher.Name = "lblTeacher";
             this.lblTeacher.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblTeacher.Size = new System.Drawing.Size(127, 23);
+            this.lblTeacher.Size = new System.Drawing.Size(113, 23);
             this.lblTeacher.TabIndex = 3;
-            this.lblTeacher.Text = "TEACHER LIST";
+            this.lblTeacher.Text = "Teacher List";
             // 
             // panelTopTeacher
             // 

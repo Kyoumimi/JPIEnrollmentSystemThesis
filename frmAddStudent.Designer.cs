@@ -35,6 +35,8 @@ namespace JPIEnrollmentSystem
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbxPersonalInfo = new System.Windows.Forms.GroupBox();
             this.dtBirthday = new System.Windows.Forms.DateTimePicker();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -58,6 +60,9 @@ namespace JPIEnrollmentSystem
             this.lblLastname = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
@@ -79,6 +84,9 @@ namespace JPIEnrollmentSystem
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.chckbxRequirements = new System.Windows.Forms.CheckedListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -93,8 +101,6 @@ namespace JPIEnrollmentSystem
             this.label19 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.lblGradeLevel = new System.Windows.Forms.Label();
             this.lblStrand = new System.Windows.Forms.Label();
             this.lblLRN = new System.Windows.Forms.Label();
@@ -125,8 +131,6 @@ namespace JPIEnrollmentSystem
             // gbxStudentDetails
             // 
             this.gbxStudentDetails.Controls.Add(this.tabStudentDetails);
-            this.gbxStudentDetails.Controls.Add(this.btnSave);
-            this.gbxStudentDetails.Controls.Add(this.btnCancel);
             this.gbxStudentDetails.Controls.Add(this.lblGradeLevel);
             this.gbxStudentDetails.Controls.Add(this.lblStrand);
             this.gbxStudentDetails.Controls.Add(this.lblLRN);
@@ -152,16 +156,18 @@ namespace JPIEnrollmentSystem
             this.tabStudentDetails.Multiline = true;
             this.tabStudentDetails.Name = "tabStudentDetails";
             this.tabStudentDetails.SelectedIndex = 0;
-            this.tabStudentDetails.Size = new System.Drawing.Size(870, 391);
+            this.tabStudentDetails.Size = new System.Drawing.Size(870, 434);
             this.tabStudentDetails.TabIndex = 9;
+            this.tabStudentDetails.SelectedIndexChanged += new System.EventHandler(this.tabStudentDetails_SelectedIndexChanged);
+            this.tabStudentDetails.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gbxPersonalInfo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(862, 359);
+            this.tabPage1.Size = new System.Drawing.Size(862, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Student Information";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -169,6 +175,8 @@ namespace JPIEnrollmentSystem
             // gbxPersonalInfo
             // 
             this.gbxPersonalInfo.Controls.Add(this.dtBirthday);
+            this.gbxPersonalInfo.Controls.Add(this.btnCancel);
+            this.gbxPersonalInfo.Controls.Add(this.btnSave);
             this.gbxPersonalInfo.Controls.Add(this.textBox10);
             this.gbxPersonalInfo.Controls.Add(this.textBox5);
             this.gbxPersonalInfo.Controls.Add(this.textBox12);
@@ -194,10 +202,11 @@ namespace JPIEnrollmentSystem
             this.gbxPersonalInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.gbxPersonalInfo.Location = new System.Drawing.Point(6, 6);
             this.gbxPersonalInfo.Name = "gbxPersonalInfo";
-            this.gbxPersonalInfo.Size = new System.Drawing.Size(850, 347);
+            this.gbxPersonalInfo.Size = new System.Drawing.Size(850, 395);
             this.gbxPersonalInfo.TabIndex = 0;
             this.gbxPersonalInfo.TabStop = false;
             this.gbxPersonalInfo.Text = "Personal Information";
+            this.gbxPersonalInfo.Enter += new System.EventHandler(this.gbxPersonalInfo_Enter);
             // 
             // dtBirthday
             // 
@@ -208,6 +217,38 @@ namespace JPIEnrollmentSystem
             this.dtBirthday.Size = new System.Drawing.Size(110, 23);
             this.dtBirthday.TabIndex = 4;
             this.dtBirthday.Value = new System.DateTime(2022, 8, 28, 16, 33, 16, 0);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(453, 348);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(77, 30);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.AutoSize = true;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(125)))), ((int)(((byte)(65)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(368, 348);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(77, 30);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "NEXT";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnNext1_Click);
             // 
             // textBox10
             // 
@@ -431,16 +472,19 @@ namespace JPIEnrollmentSystem
             // 
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.gbxGuardianInfo);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(862, 359);
+            this.tabPage2.Size = new System.Drawing.Size(862, 403);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Parent\'s Information";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.textBox8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBox19);
@@ -451,10 +495,58 @@ namespace JPIEnrollmentSystem
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox1.Location = new System.Drawing.Point(5, 180);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(851, 161);
+            this.groupBox1.Size = new System.Drawing.Size(851, 217);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Guardian Information";
+            // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(312, 171);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(81, 30);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "PREVIOUS";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnPrev1_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(482, 171);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 30);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "CANCEL";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnCancel2_Click);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(125)))), ((int)(((byte)(65)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(399, 171);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(77, 30);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "NEXT";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnNext2_Click);
             // 
             // textBox8
             // 
@@ -658,22 +750,73 @@ namespace JPIEnrollmentSystem
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(862, 360);
+            this.tabPage3.Size = new System.Drawing.Size(862, 403);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Requirements";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.chckbxRequirements);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox3.Location = new System.Drawing.Point(6, 198);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(850, 155);
+            this.groupBox3.Size = new System.Drawing.Size(850, 199);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Requirements";
+            // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(311, 154);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 30);
+            this.button4.TabIndex = 23;
+            this.button4.Text = "PREVIOUS";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.btnPrev2_Click);
+            // 
+            // button5
+            // 
+            this.button5.AutoSize = true;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(481, 154);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(77, 30);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "CANCEL";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.btnCancel3_Click);
+            // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(125)))), ((int)(((byte)(65)))));
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(398, 154);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(77, 30);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "SAVE";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // chckbxRequirements
             // 
@@ -834,37 +977,6 @@ namespace JPIEnrollmentSystem
             this.label20.TabIndex = 12;
             this.label20.Text = "ELEMENTARY";
             // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = true;
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(125)))), ((int)(((byte)(65)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(352, 476);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(77, 30);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(454, 476);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(77, 30);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // lblGradeLevel
             // 
             this.lblGradeLevel.AutoSize = true;
@@ -961,6 +1073,7 @@ namespace JPIEnrollmentSystem
             this.gbxGuardianInfo.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -1041,5 +1154,11 @@ namespace JPIEnrollmentSystem
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

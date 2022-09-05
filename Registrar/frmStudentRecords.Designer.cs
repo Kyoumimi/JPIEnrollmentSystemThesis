@@ -43,7 +43,13 @@ namespace JPIEnrollmentSystem
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStudentInfo = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colSubjectCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQ1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQ2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -99,12 +105,6 @@ namespace JPIEnrollmentSystem
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.lblFirstname = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.colSubjectCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQ1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQ2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabpgFinancialInfo = new System.Windows.Forms.TabPage();
             this.gboxStudentRecord.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -305,6 +305,15 @@ namespace JPIEnrollmentSystem
             this.tabStudentInfo.Text = "STUDENT INFORMATION";
             this.tabStudentInfo.UseVisualStyleBackColor = true;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(751, 48);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(82, 15);
+            this.label24.TabIndex = 4;
+            this.label24.Text = "Adviser Name";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -322,6 +331,40 @@ namespace JPIEnrollmentSystem
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(950, 416);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // colSubjectCode
+            // 
+            this.colSubjectCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colSubjectCode.HeaderText = "SUBJECT ";
+            this.colSubjectCode.Name = "colSubjectCode";
+            // 
+            // colQ1
+            // 
+            this.colQ1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colQ1.HeaderText = "QUARTER 1";
+            this.colQ1.Name = "colQ1";
+            this.colQ1.Width = 92;
+            // 
+            // colQ2
+            // 
+            this.colQ2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colQ2.HeaderText = "QUARTER 2";
+            this.colQ2.Name = "colQ2";
+            this.colQ2.Width = 92;
+            // 
+            // colFinal
+            // 
+            this.colFinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colFinal.HeaderText = "FINAL";
+            this.colFinal.Name = "colFinal";
+            this.colFinal.Width = 62;
+            // 
+            // colRemarks
+            // 
+            this.colRemarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colRemarks.HeaderText = "REMARKS";
+            this.colRemarks.Name = "colRemarks";
+            this.colRemarks.Width = 83;
             // 
             // label22
             // 
@@ -902,49 +945,6 @@ namespace JPIEnrollmentSystem
             this.label8.Size = new System.Drawing.Size(66, 15);
             this.label8.TabIndex = 3;
             this.label8.Text = "LAST NAME";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(751, 48);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(82, 15);
-            this.label24.TabIndex = 4;
-            this.label24.Text = "Adviser Name";
-            // 
-            // colSubjectCode
-            // 
-            this.colSubjectCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colSubjectCode.HeaderText = "SUBJECT ";
-            this.colSubjectCode.Name = "colSubjectCode";
-            // 
-            // colQ1
-            // 
-            this.colQ1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colQ1.HeaderText = "QUARTER 1";
-            this.colQ1.Name = "colQ1";
-            this.colQ1.Width = 92;
-            // 
-            // colQ2
-            // 
-            this.colQ2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colQ2.HeaderText = "QUARTER 2";
-            this.colQ2.Name = "colQ2";
-            this.colQ2.Width = 92;
-            // 
-            // colFinal
-            // 
-            this.colFinal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colFinal.HeaderText = "FINAL";
-            this.colFinal.Name = "colFinal";
-            this.colFinal.Width = 62;
-            // 
-            // colRemarks
-            // 
-            this.colRemarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colRemarks.HeaderText = "REMARKS";
-            this.colRemarks.Name = "colRemarks";
-            this.colRemarks.Width = 83;
             // 
             // tabpgFinancialInfo
             // 

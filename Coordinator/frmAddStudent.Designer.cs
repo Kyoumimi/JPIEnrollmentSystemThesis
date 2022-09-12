@@ -34,6 +34,7 @@ namespace JPIEnrollmentSystem
             this.tabStudentDetails = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbxPersonalInfo = new System.Windows.Forms.GroupBox();
+            this.tbAge = new System.Windows.Forms.TextBox();
             this.dtBirthday = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -103,10 +104,9 @@ namespace JPIEnrollmentSystem
             this.lblGradeLevel = new System.Windows.Forms.Label();
             this.lblStrand = new System.Windows.Forms.Label();
             this.lblLRN = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbLRN = new System.Windows.Forms.TextBox();
             this.cbxStrand = new System.Windows.Forms.ComboBox();
             this.cbxGradeLvl = new System.Windows.Forms.ComboBox();
-            this.tbAge = new System.Windows.Forms.TextBox();
             this.gbxStudentDetails.SuspendLayout();
             this.tabStudentDetails.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -134,7 +134,7 @@ namespace JPIEnrollmentSystem
             this.gbxStudentDetails.Controls.Add(this.lblGradeLevel);
             this.gbxStudentDetails.Controls.Add(this.lblStrand);
             this.gbxStudentDetails.Controls.Add(this.lblLRN);
-            this.gbxStudentDetails.Controls.Add(this.textBox1);
+            this.gbxStudentDetails.Controls.Add(this.tbLRN);
             this.gbxStudentDetails.Controls.Add(this.cbxStrand);
             this.gbxStudentDetails.Controls.Add(this.cbxGradeLvl);
             this.gbxStudentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -206,11 +206,19 @@ namespace JPIEnrollmentSystem
             this.gbxPersonalInfo.TabStop = false;
             this.gbxPersonalInfo.Text = "Personal Information";
             // 
+            // tbAge
+            // 
+            this.tbAge.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAge.Location = new System.Drawing.Point(124, 126);
+            this.tbAge.Name = "tbAge";
+            this.tbAge.Size = new System.Drawing.Size(78, 23);
+            this.tbAge.TabIndex = 9;
+            // 
             // dtBirthday
             // 
+            this.dtBirthday.CustomFormat = "MM/dd/yyyy";
             this.dtBirthday.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBirthday.CustomFormat = "MM/dd/yyyy";
             this.dtBirthday.Location = new System.Drawing.Point(124, 199);
             this.dtBirthday.Name = "dtBirthday";
             this.dtBirthday.Size = new System.Drawing.Size(110, 23);
@@ -360,8 +368,8 @@ namespace JPIEnrollmentSystem
             // 
             // cbxGender
             // 
-            this.cbxGender.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxGender.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGender.FormattingEnabled = true;
             this.cbxGender.Items.AddRange(new object[] {
             "Male",
@@ -808,11 +816,6 @@ namespace JPIEnrollmentSystem
             this.chckbxRequirements.CheckOnClick = true;
             this.chckbxRequirements.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chckbxRequirements.FormattingEnabled = true;
-            this.chckbxRequirements.Items.AddRange(new object[] {
-            "2x2 ID Picture ",
-            "Certificate of Good Moral",
-            "Form 138",
-            "PSA Birth Certificate"});
             this.chckbxRequirements.Location = new System.Drawing.Point(17, 36);
             this.chckbxRequirements.Name = "chckbxRequirements";
             this.chckbxRequirements.Size = new System.Drawing.Size(218, 90);
@@ -992,13 +995,13 @@ namespace JPIEnrollmentSystem
             this.lblLRN.TabIndex = 3;
             this.lblLRN.Text = "STUDENT LRN :";
             // 
-            // textBox1
+            // tbLRN
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(125, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 23);
-            this.textBox1.TabIndex = 2;
+            this.tbLRN.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLRN.Location = new System.Drawing.Point(125, 35);
+            this.tbLRN.Name = "tbLRN";
+            this.tbLRN.Size = new System.Drawing.Size(238, 23);
+            this.tbLRN.TabIndex = 2;
             // 
             // cbxStrand
             // 
@@ -1030,14 +1033,6 @@ namespace JPIEnrollmentSystem
             this.cbxGradeLvl.Size = new System.Drawing.Size(57, 23);
             this.cbxGradeLvl.TabIndex = 6;
             // 
-            // tbAge
-            // 
-            this.tbAge.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAge.Location = new System.Drawing.Point(124, 126);
-            this.tbAge.Name = "tbAge";
-            this.tbAge.Size = new System.Drawing.Size(78, 23);
-            this.tbAge.TabIndex = 9;
-            // 
             // frmAddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1050,6 +1045,7 @@ namespace JPIEnrollmentSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmAddStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frmAddStudent_Load);
             this.gbxStudentDetails.ResumeLayout(false);
             this.gbxStudentDetails.PerformLayout();
             this.tabStudentDetails.ResumeLayout(false);
@@ -1075,7 +1071,7 @@ namespace JPIEnrollmentSystem
         private System.Windows.Forms.Panel panelTopEnrollment;
         private System.Windows.Forms.GroupBox gbxStudentDetails;
         private System.Windows.Forms.Label lblLRN;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbLRN;
         private System.Windows.Forms.GroupBox gbxGuardianInfo;
         private System.Windows.Forms.GroupBox gbxPersonalInfo;
         private System.Windows.Forms.Label lblMiddlename;

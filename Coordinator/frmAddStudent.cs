@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using JPIEnrollmentSystem.Models;
+using System.Linq;
 
 namespace JPIEnrollmentSystem
 {
@@ -19,14 +21,33 @@ namespace JPIEnrollmentSystem
         private string lastName, firstName, middleName, gender, dateOfBirth, placeOfBirth, studentContact, email, religion, address,
             fatherName, fatherOccupation, fatherContact, motherName, motherOccupation, motherContact, guardianName, guardianRelationship,
             guardianContact, elem, elemInclusiveYears, elemYearGraduated, jhs, jhsInclusiveYears, jhsYearGraduated;
-        private List<string> requirements = new List<string>();
+
+        private List<Requirement> requirements;
+
         private bool isAgeValid, blIDPic, blGoodMoral, blForm138, blPSA;
+
         private int age;
         #endregion
+
+        #region RequirementEntities
+
+        #endregion
+
+        //private EnrollmentSystemContext context = new EnrollmentSystemContext();
 
         public frmAddStudent()
         {
             InitializeComponent();
+        }
+
+        private void frmAddStudent_Load(object sender, EventArgs e)
+        {
+            //// Show Requirements From the Database Table
+            //requirements = context.Requirements.ToList();
+            //foreach (var requirement in requirements)
+            //{
+            //    chckbxRequirements.Items.Add(requirement.Name);
+            //}
         }
 
         bool checkCancel = true;
@@ -222,10 +243,12 @@ namespace JPIEnrollmentSystem
                 MessageBox.Show($"FAMILY INFO:\nFather's Name: {fatherName}\nFather's Occupation: {fatherOccupation}\nFather's Contact Number: {fatherContact}" +
                 $"\nMother's Name: {motherName}\nMother's Occupation: {motherOccupation}\nMother's Contact Number: {motherContact}\n" +
                 $"Guardian's Name: {guardianName}\nRelationship with Guardian: {guardianRelationship}\nGuardian Contact Number: {guardianContact}");
-
+                
                 checkCancel = false;
                 tabStudentDetails.SelectedTab = tabPage3;
             }
+
+            
 
 
         }
@@ -269,30 +292,105 @@ namespace JPIEnrollmentSystem
             jhsYearGraduated = tbJHSYearGraduated.Text;
 
 
-            if (!ValidateBackgroundFields() || !ValidateEducationalBackground(elem, elemInclusiveYears, elemYearGraduated) || !ValidateEducationalBackground(jhs, jhsInclusiveYears, jhsYearGraduated)
+            if (!ValidateLRNAndGradeLevel() || !ValidateBackgroundFields() || !ValidateEducationalBackground(elem, elemInclusiveYears, elemYearGraduated) || !ValidateEducationalBackground(jhs, jhsInclusiveYears, jhsYearGraduated)
                 || !ValidateRequirements()) { return; }
 
-            string providedRequirements = "";
-            foreach (string requirement in requirements)
-            {
-                providedRequirements += $"{requirement}\n";
-            }
 
-            MessageBox.Show($"Educational Background:\nElementary School: {elem}\nElementary Inclusive Years: {elemInclusiveYears}\nElementary Year Graduated: {elemYearGraduated}" +
-                $"\nJunior High School: {jhs}\nJHS Inclusive Years: {jhsInclusiveYears}\nJHS Year Graduated: {jhsYearGraduated}\n" +
-                $"Requirements Provided: {providedRequirements}");
+            //Student student = new Student()
+            //{
+            //    FirstName = firstName,
+            //    LastName = lastName,
+            //    MiddleName = middleName,
+            //    GradeLevel = 11,
+            //    Email = email,
+            //    Address = address,
+            //};
+
+            //context.Students.Add(student);
+            //context.SaveChanges();
+
+            //StudentInformation studentInformation = new StudentInformation()
+            //{
+            //    Student = student,
+            //    Age = age,
+            //    Gender = gender,
+            //    LRN = tbLRN.Text,
+            //    Religion = religion,
+            //    DateOfBirth = Convert.ToDateTime(dateOfBirth),
+            //    Elem = elem,
+            //    ElemInclusiveYears = elemInclusiveYears,
+            //    ElemYearGraduated = Convert.ToInt32(elemYearGraduated),
+            //    Jhs = jhs,
+            //    JhsInclusiveYears = jhsInclusiveYears,
+            //    JhsYearGraduated = Convert.ToInt32(jhsYearGraduated),
+            //    ContactNumber = studentContact
+            //};
+
+            //context.StudentsInformation.Add(studentInformation);
+
+            //StudentFamilyInformation familyInformation = new StudentFamilyInformation()
+            //{
+            //    Student = student,
+            //    FatherName = fatherName,
+            //    FatherOccupation = fatherOccupation,
+            //    FatherContacNo = fatherContact,
+            //    MotherName = motherName,
+            //    MotherOccupation = motherOccupation,
+            //    MotherContactNo = motherContact,
+            //    GuardianName = guardianName,
+            //    GuardianRelation = guardianRelationship,
+            //    GuardianContacNo = guardianContact
+            //};
+            
+            //context.StudentsFamilyInformation.Add(familyInformation);
+
+
+            //foreach (Requirement item in chckbxRequirements.CheckedItems)
+            //{
+            //    StudentRequirement studentRequirement = new StudentRequirement()
+            //    {
+            //        Student = student,
+            //        Requirement = item,
+            //    };
+
+            //    context.StudentsRequirements.Add(studentRequirement);
+            //}
+
+            //context.SaveChanges();
+
+            
+
+            //string providedRequirements = "";
+            //foreach (string requirement in requirements)
+            //{
+            //    providedRequirements += $"{requirement}\n";
+            //}
+
+            //MessageBox.Show($"Educational Background:\nElementary School: {elem}\nElementary Inclusive Years: {elemInclusiveYears}\nElementary Year Graduated: {elemYearGraduated}" +
+            //    $"\nJunior High School: {jhs}\nJHS Inclusive Years: {jhsInclusiveYears}\nJHS Year Graduated: {jhsYearGraduated}\n" +
+            //    $"Requirements Provided: {providedRequirements}");
+
+
+
 
             this.Dispose();
         }
 
         #region EducationValidation
+
+        private bool ValidateLRNAndGradeLevel()
+        {
+            if(cbxGradeLvl.SelectedIndex != -1 && cbxGradeLvl.SelectedItem != null && !string.IsNullOrWhiteSpace(tbLRN.Text) 
+                && cbxStrand.SelectedIndex != -1) { return true; }
+            MessageBox.Show("Please provide LRN, Grade Level, or Strand", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+
+        }
         private bool ValidateBackgroundFields()
         {
             if (!string.IsNullOrWhiteSpace(elem) && !string.IsNullOrWhiteSpace(elemInclusiveYears) && !string.IsNullOrWhiteSpace(elemYearGraduated)
                 && !string.IsNullOrWhiteSpace(jhs) && !string.IsNullOrWhiteSpace(jhsInclusiveYears) && !string.IsNullOrWhiteSpace(jhsInclusiveYears))
-            {
-                return true;
-            }
+            { return true; }
 
             MessageBox.Show("Please provide the missing fields", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
@@ -329,34 +427,16 @@ namespace JPIEnrollmentSystem
         {
             if (chckbxRequirements.CheckedItems.Count > 0)
             {
-                foreach (var item in chckbxRequirements.CheckedItems)
-                {
-                    requirements.Add(item.ToString());
-                }
-
-                foreach (string requirement in requirements)
-                {
-
-                    if (requirement.Contains("2x2 ID Picture"))
-                    {
-                        blIDPic = true;
-                    }
-
-                    if (requirement.Contains("Certificate of Good Moral"))
-                    {
-                        blGoodMoral = true;
-                    }
-
-                    if (requirement.Contains("Form 138"))
-                    {
-                        blForm138 = true;
-                    }
-
-                    if (requirement.Contains("PSA Birth Certificate"))
-                    {
-                        blPSA = true;
-                    }
-                }
+                //foreach (var item in chckbxRequirements.CheckedItems)
+                //{
+                //    foreach(Requirement requirement in requirements)
+                //    {
+                //        if(item.ToString() == requirement.ToString())
+                //        {
+                //            int id = requirement.Id;
+                //        }
+                //    }
+                //}
 
                 return true;
             }
